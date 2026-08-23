@@ -322,7 +322,7 @@ export default function Home() {
       {selectedPlayer ? (
         <div className="space-y-4">
           <div className="flex justify-between items-center">
-            <h2 className="text-lg md:text-2xl font-black text-gray-900 truncate pr-2">🔥 {selectedPlayer}</h2>
+            <h2 className="text-lg md:text-2xl font-black text-orange-500 truncate pr-2">🔥 {selectedPlayer}</h2>
             <button 
               onClick={() => setSelectedPlayer(null)} 
               className="text-xs md:text-sm bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-3 rounded transition-colors shrink-0"
