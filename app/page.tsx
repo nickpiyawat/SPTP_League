@@ -21,7 +21,6 @@ export default function Home() {
   const [selectedMonthYear, setSelectedMonthYear] = useState("all");
   const [availablePeriods, setAvailablePeriods] = useState<{value: string, label: string}[]>([]);
 
-  // State สำหรับช่องค้นหาผู้เล่น
   const [searchQuery, setSearchQuery] = useState("");
 
   const [sortConfig, setSortConfig] = useState<{ key: keyof PlayerStat; direction: "asc" | "desc" }>({
@@ -226,7 +225,6 @@ export default function Home() {
     }
   };
 
-  // กรองรายชื่อในตารางตามคำค้นหา (Search Query)
   const filteredStats = stats.filter(player => 
     player.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -278,10 +276,10 @@ export default function Home() {
 
   return (
     <div className="max-w-5xl mx-auto px-3 py-4 md:p-8 font-sans">
-      {/* --- แถบเมนูด้านบน --- */}
+      {/* --- แถบเมนูด้านบน (เปลี่ยนสีตัวอักษรหัวข้อ LEAGUE PORTAL ให้เป็นสีส้มสว่าง) --- */}
       <div className="flex flex-col gap-4 mb-6 pb-4 border-b border-orange-200">
         <div className="flex justify-between items-center">
-          <h1 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight">🏆 LEAGUE PORTAL</h1>
+          <h1 className="text-xl md:text-2xl font-black text-orange-500 tracking-tight">🏆 LEAGUE PORTAL</h1>
           {isAdmin && currentView === "admin" && (
             <button 
               onClick={() => { setIsAdmin(false); setCurrentView("home"); }} 
@@ -510,7 +508,7 @@ export default function Home() {
           </div>
         </div>
       ) : (
-        /* --- หน้าตารางคะแนนรวม (พร้อมช่องค้นหา Search Bar) --- */
+        /* --- หน้าตารางคะแนนรวม --- */
         <>
           <div className="mb-4 flex flex-col gap-3">
             <div className="flex justify-between items-center">
@@ -532,7 +530,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 🔍 ช่องค้นหาผู้เล่น (Search Bar) */}
             <div className="w-full">
               <input 
                 type="text"
