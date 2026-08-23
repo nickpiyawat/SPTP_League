@@ -37,7 +37,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const SHEETDB_URL = "https://sheetdb.io/api/v1/jltp7ipqyzfv9?sheet=Matches";
-  const ADMIN_PIN = "1234";
+  const ADMIN_PIN = "102030";
 
   const thaiMonths = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
 
@@ -276,7 +276,7 @@ export default function Home() {
 
   return (
     <div className="max-w-5xl mx-auto px-3 py-4 md:p-8 font-sans">
-      {/* --- แถบเมนูด้านบน (เปลี่ยนสีตัวอักษรหัวข้อ LEAGUE PORTAL ให้เป็นสีส้มสว่าง) --- */}
+      {/* --- แถบเมนูด้านบน --- */}
       <div className="flex flex-col gap-4 mb-6 pb-4 border-b border-orange-200">
         <div className="flex justify-between items-center">
           <h1 className="text-xl md:text-2xl font-black text-orange-500 tracking-tight">🏆 LEAGUE PORTAL</h1>
@@ -438,7 +438,6 @@ export default function Home() {
               {isSubmitting ? "กำลังบันทึก..." : "บันทึกผล"}
             </button>
           </form>
-          <p className="text-[11px] text-gray-600 text-center">*(หากต้องการลบข้อมูล สามารถจัดการได้โดยตรงจากไฟล์ Google Sheets)*</p>
         </div>
       ) : currentView === "home" ? (
         /* --- หน้าแรก: ดาวเด่นประจำสัปดาห์ --- */
@@ -508,13 +507,13 @@ export default function Home() {
           </div>
         </div>
       ) : (
-        /* --- หน้าตารางคะแนนรวม --- */
+        /* --- หน้าตารางคะแนนรวม (เปลี่ยนสีหัวข้อและคำว่าช่วงเวลาให้เป็นสีสว่าง) --- */
         <>
           <div className="mb-4 flex flex-col gap-3">
             <div className="flex justify-between items-center">
-              <h2 className="text-lg md:text-2xl font-black text-gray-900">🏆 ตารางคะแนนรวม</h2>
+              <h2 className="text-lg md:text-2xl font-black text-orange-400">🏆 ตารางคะแนนรวม</h2>
               <div className="flex items-center">
-                <label className="mr-2 text-gray-800 font-bold text-xs md:text-sm">ช่วงเวลา:</label>
+                <label className="mr-2 text-orange-200 font-bold text-xs md:text-sm">ช่วงเวลา:</label>
                 <select 
                   className="border border-orange-300 rounded-lg px-3 py-1.5 bg-white text-gray-900 font-bold focus:outline-none focus:ring-2 focus:ring-orange-600 shadow-sm text-xs md:text-sm"
                   value={selectedMonthYear} 
